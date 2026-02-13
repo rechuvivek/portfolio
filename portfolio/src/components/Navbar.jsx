@@ -1,11 +1,13 @@
 "use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
   const navLinks = [
     { name: "Projects", href: "/#projects" },
@@ -18,13 +20,18 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
-        <div className="flex items-center justify-between px-8 py-3 gap-8
+        <div
+          className="flex items-center justify-between px-8 py-3 gap-8
           bg-black/60 backdrop-blur-xl
           border border-white/10
           rounded-full
           shadow-[0_0_40px_rgba(59,130,246,0.15)]
-        ">
-          <Link href="/#hero" className="text-lg font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+        "
+        >
+          <Link
+            href="/#hero"
+            className="text-lg font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          >
             Vivek
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium">
@@ -48,7 +55,8 @@ export default function Navbar() {
         </div>
       </nav>
       {isOpen && (
-        <div className="fixed top-20 left-1/2 -translate-x-1/2 w-[90%] max-w-sm
+        <div
+          className="fixed top-20 left-1/2 -translate-x-1/2 w-[90%] max-w-sm
           bg-black/80 backdrop-blur-xl border border-white/10
           rounded-2xl py-6 flex flex-col items-center gap-6 z-40 shadow-xl md:hidden"
         >

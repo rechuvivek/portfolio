@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const experiences = [
   {
@@ -23,28 +24,32 @@ const experiences = [
 ];
 
 export default function ResponsiveTimelineGrid() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    // Render a static fallback during SSR to avoid hydration issues
+    return (
+      <section id="exp" className="relative w-full py-16 md:py-24 px-4">
+        <h2 className="text-center text-2xl md:text-4xl font-bold text-white mb-12 md:mb-20">
+          Experience Timeline
+        </h2>
+      </section>
+    );
+  }
+
   return (
     <section id="exp" className="relative w-full py-16 md:py-24 px-4">
-      {/* Title */}
       <h2 className="text-center text-2xl md:text-4xl font-bold text-white mb-12 md:mb-20">
         Experience Timeline
       </h2>
 
-      {/* Timeline Vertical Line */}
       <div className="absolute left-1/2 top-0 h-full w-[2px] bg-white/10 hidden md:block" />
 
-      <div
-        className="
-        grid
-        grid-cols-1
-        sm:grid-cols-2
-        lg:grid-cols-3
-        xl:grid-cols-4
-        gap-8
-        max-w-7xl
-        mx-auto
-      "
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
@@ -55,23 +60,15 @@ export default function ResponsiveTimelineGrid() {
             whileHover={{ y: -6 }}
             className="relative"
           >
-            {/* Glow */}
             <div
               className={`absolute -inset-1 bg-gradient-to-r ${exp.color} rounded-3xl blur-xl opacity-20`}
             />
-
-            {/* Card */}
             <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl md:rounded-3xl p-6 shadow-2xl text-white h-full">
               <div className="text-xs text-white/50 mb-2">{exp.year}</div>
-
               <h3 className="text-lg font-semibold mb-1">{exp.role}</h3>
-
               <p className="text-sm text-white/70 mb-3">{exp.company}</p>
-
               <p className="text-sm text-white/80 mb-3">{exp.description}</p>
-
               <p className="text-emerald-400 text-sm mb-4">{exp.impact}</p>
-
               <div className="flex flex-wrap gap-2">
                 {exp.stack.map((tech, i) => (
                   <span

@@ -5,6 +5,9 @@ import Footer from "@/components/Footer";
 export const metadata = {
   title: "Vivek | Developer Portfolio",
   description: "Portfolio of Vivek - Python & Full Stack Developer",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -12,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="bg-black text-white">
         <Navbar />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
