@@ -129,10 +129,10 @@ export default function Hero() {
             </a>
           </div>
         </motion.div>
-
-        <div className="hidden md:block">
+        <HeroTechCloud />
+        {/* <div className="hidden md:block">
           <HeroTechCloud />
-        </div>
+        </div> */}
       </div>
     </section>
   );
