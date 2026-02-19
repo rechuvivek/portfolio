@@ -28,6 +28,14 @@ export default function Projects() {
       github: "#",
       demo: "#",
     },
+    {
+      title: "Portfolio Webiste",
+      description:
+      "A personal portfolio website showcasing my projects, skills, experience, and contact information, built with modern web technologies.",
+      tech: ["React.js","Next.js"],
+      github: "#",
+      demo: "#",
+    }
     
   ];
 

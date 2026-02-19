@@ -32,7 +32,7 @@ export default function Navbar() {
             href="/#hero"
             className="text-lg font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
           >
-            Vivek Reddy
+            Vivek
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium">
             {navLinks.map((link) => (

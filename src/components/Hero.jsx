@@ -4,9 +4,18 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const techStack = [
-  "Python", "FastAPI", "Node.js", "React", "Next.js",
-  "PostgreSQL", "MongoDB", "Docker", "AWS",
-  "TensorFlow", "PyTorch", "Redis",
+  "Python",
+  "FastAPI",
+  "Node.js",
+  "React",
+  "Next.js",
+  "PostgreSQL",
+  "MongoDB",
+  "Docker",
+  "AWS",
+  "TensorFlow",
+  "PyTorch",
+  "Redis",
 ];
 
 const techPositions = techStack.map((_, index) => ({
@@ -67,9 +76,13 @@ function HeroTechCloud() {
 
 export default function Hero() {
   return (
+    // <section
+    //   id="hero"
+    //   className="relative min-h-screen flex items-center px-6 py-16 md:py-20 bg-black text-white overflow-hidden"
+    // >
     <section
       id="hero"
-      className="relative min-h-screen flex items-center px-6 py-16 md:py-20 bg-black text-white overflow-hidden"
+      className="relative min-h-screen flex items-center px-6 pt-24 md:pt-32 pb-16 bg-black text-white overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-black to-purple-900/20" />
 
@@ -117,7 +130,9 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <HeroTechCloud />
+        <div className="hidden md:block">
+          <HeroTechCloud />
+        </div>
       </div>
     </section>
   );
