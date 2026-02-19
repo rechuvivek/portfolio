@@ -33,8 +33,8 @@ export default function Projects() {
       description:
       "A personal portfolio website showcasing my projects, skills, experience, and contact information, built with modern web technologies.",
       tech: ["React.js","Next.js"],
-      github: "#",
-      demo: "#",
+      github: "https://github.com/rechuvivek/portfolio.git",
+      demo: "https://portfolio-rechuviveks-projects.vercel.app/",
     }
     
   ];
