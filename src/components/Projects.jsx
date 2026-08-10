@@ -9,7 +9,7 @@ export default function Projects() {
       description:
         "A full-stack application to manage sales, inventory, and transactions for a flower shop.",
       tech: ["React.js", "Node.js", "PostgreSQL"],
-      github: "https://github.com/rechuvivek/inveno.git",
+      github: "https://github.com/rechuvivek/inveno-2.0.git",
       demo: "#",
     },
     {
